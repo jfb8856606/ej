@@ -222,7 +222,7 @@ int32_t handle_event(int32_t sockfd, int32_t epollfd)
                         // send
                         int len, send_len;
                         memset(buf, 0, sizeof(buf));
-                        snprintf(buf, sizeof(buf), "the EJ web server test OK!\n");
+                        snprintf(buf, sizeof(buf), "HTTP/1.1 200 OK\r\nthe EJ web server test OK!\r\n\r\n");
                         len = strlen(buf);
                         send_len = send(http_sockfd, buf, len, 0);
                         if (send_len != len)
